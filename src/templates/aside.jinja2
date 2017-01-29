@@ -1,0 +1,44 @@
+{% extends 'base.jinja2' %}
+
+{% block aside %}
+
+<aside class="books">
+
+    <div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-brand"></span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          <ul class="nav navbar-nav">
+            {% if 'username' in session %}
+              <li><a href="{{url_for()}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            {% else %}
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+            <li>Languages</li>
+            <li><a href="#">All</a></li>
+            <li><a href="#">C++</a></li>
+            <li><a href="#">Java</a></li>
+            <li><a href="#">Javascript</a></li>
+            <li><a href="#">HTML5</a></li>
+            <li><a href="#">PHP</a></li>
+            <li><a href="#">Python/Django</a></li>
+            <li><a href="#">Ruby/Rails</a></li>
+            {% endif%}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+
+
+    </div>
+</aside>
+<div class="content container">
+
+{% endblock %}

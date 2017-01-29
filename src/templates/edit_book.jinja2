@@ -1,0 +1,96 @@
+{% extends 'base.jinja2' %}
+
+
+{% block content %}
+        <script>
+            $(document).ready(function(){
+                $('span.img-help').mouseenter(function()
+                    {
+                        $(".flyout").show();
+                    });
+                $('span.img-help').mouseleave(function()
+                    {
+                        $(".flyout").hide();
+                    });
+
+
+            });
+            // Removes the content class to correctly use all the space
+            $("#content-container").removeClass("content");
+
+            // Uses in the seleect form to correctly display the languages
+            var count = 0;
+        </script>
+        <form method="post" class="form-horizontal" action="#">
+            <h2>Edit a book</h2>
+            <fieldset>
+               <div class="form-group">
+                    <label for="inputTitle" class="control-label col-xs-3">Image: <span class="img-help glyphicon glyphicon-question-sign" aria-hidden="true"></span></label>
+                    <div class="flyout">
+                        <p>
+                            Image from Amazon.com webpage. To get, right click on image and scroll to copy image address and paste here.
+                        </p>
+                    </div>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" name="book_img" value="{{book.book_img}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputTitle" class="control-label col-xs-3">Title:</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" name="book_title" value="{{book.book_title}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAuthor" class="control-label col-xs-3">Author:</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" name="book_author" value="{{book.book_author}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputDescription" class="control-label col-xs-3">Description:</label>
+                    <div class="col-xs-9">
+                        <textarea type="test" class="form-control" name="book_description" value="{{book.book_description}}" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputLanguage" class="control-label col-xs-3">Language:</label>
+                    <div class="col-xs-9">
+                        <select class="form-control" name="language_id" id="select-language" value="{{book.language_id}}">
+                            {% for language in languages %}
+                            <script>
+
+                                if (count == {{book.language_id}})
+                                {
+                                    $("#select-language").append('<option value="' + count + '" selected>{{language.language}}</option>');
+                                } else
+                                {
+                                    $("#select-language").append('<option value="' + count + '">{{language.language}}</option>');
+                                }
+
+                                count++;
+                            </script>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputLanguage" class="control-label col-xs-3">Website to buy:</label>
+                    <div class="col-xs-9">
+                        <input type="test" class="form-control" name="book_url" value="{{book.book_img}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                     <label for="inputTitle" class="control-label col-xs-3">User Id:</label>
+                     <div class="col-xs-9">
+                         <input type="text" class="form-control" name="user_id" placeholder="{{user.name}}" disabled>
+                     </div>
+                 </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-blue" value="Submit">
+                    <a href="{{url_for('books.index')}}" class="btn btn-danger" id="cancel"  alt="Cancel">Cancel</a>
+                </div>
+
+            </fieldset>
+        </form>
+    {% endblock %}

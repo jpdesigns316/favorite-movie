@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <form class="" action="index.html" method="post">
+            <legend>Delete a Book</legend>
+            <fieldset>
+                Deleting a book will permanently delete form teh database.
+            </fieldset>
+            <fieldset>
+                <label class="btn btn-primary">
+                    <input type="checkbox"  onchange="document.getElementById('sendNewSms').disabled = !this.checked;"/> Are you sure?
+                </label>
+            </fieldset>
+            <fieldset>
+                <input type="submit" name="delete" class="inputButton" id="delete" value=" Delete" disabled="True"/>
+                <input type="submit" name="cancel_delete" class="inputButton" id="cancel_delete" value=" Cancel" />
+
+            </fieldset>
+
+        </form>
+
+    </body>
+</html>

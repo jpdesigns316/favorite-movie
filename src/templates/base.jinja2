@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Programming by Readng</title>
+        {% include  'html_dependencies.html' %}
+    </head>
+    <body>
+
+        <script>
+            // Generates the language_id for use in the books.get_languages function
+            var count = 1;
+        </script>
+        <div class="container">
+
+
+        <header class="logo">
+            <a href="{{url_for('books.index')}}"><img class="img-responsive" src="{{url_for('static', filename='image/logo2.png')}}" alt=""></a>
+        </header>
+        <div class="welcome">
+            <!-- Displays the Username if it exists in the login_session, and greet then. If
+            not the use default greet for Guest -->
+            {% if 'username' in session %}
+                <p>Welcome, {{user.name}}!</p>
+            {% else %}
+                <p>Welcome, Guest!</p>
+            {% endif %}
+        </div>
+        <div class="login-bar text-right">
+        <!-- If a user has logged in through Google Plus the login_session will return a 'username'.
+        Display a link to add a book or to log out. If there is no username in the session
+        then show the Google Plus sign in button. -->
+                    {% if 'username' in session %}
+                        <a class="inner-bar" href="{{url_for('books.add_book')}}">Add Book</a>
+                        <a href="{{url_for('gdisconnect')}}"> <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    {% else %}
+                    <!-- GOOGLE PLUS SIGN IN-->
+
+
+                              <div id="signInButton">
+                              <span class="g-signin"
+                                data-scope="openid email"
+                                data-clientid="578748196498-sd9gf8nimbodoe975ebod2kb0hoesb42.apps.googleusercontent.com"
+                                data-redirecturi="postmessage"
+                                data-accesstype="offline"
+                                data-cookiepolicy="single_host_origin"
+                                data-callback="signInCallback"
+                                data-approvalprompt="force">
+                              </span>
+                            </div>
+
+                    <div id="result"></div>
+
+                    <script>
+                    function signInCallback(authResult) {
+                      if (authResult['code']) {
+                        // Hide the sign-in button now that the user is authorized
+                        $('#signinButton').attr('style', 'display: none');
+                        // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main restaurants page
+                        $.ajax({
+                          type: 'POST',
+                          url: '/gconnect?state={{STATE}}',
+                          processData: false,
+                          data: authResult['code'],
+                          contentType: 'application/octet-stream; charset=utf-8',
+                          success: function(result) {
+                            // Handle or verify the server response if necessary.
+                            if (result) {
+                              $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+                             setTimeout(function() {
+                              window.location.href = "/books";
+                             }, 4000);
+
+                          } else if (authResult['error']) {
+                        console.log('There was an error: ' + authResult['error']);
+                      } else {
+                            $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+                             }
+                          }
+
+                      }); } }
+                    </script>
+
+
+
+                    <!--END GOOGLE PLUS SIGN IN -->
+                    {% endif%}
+
+        </div>
+        <div class="middle">
+            <aside class="books">
+                <div class="sidebar-nav">
+                    <div class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            </button>
+                            <span class="visible-xs navbar-brand"></span>
+                        </div>
+                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                            <ul class="nav navbar-nav" id="language-menu">
+
+                                <li>Languages</li>
+                                {% for language in languages %}
+                                <script>
+
+
+                                    $("#language-menu").append("<li><a href='{{url_for('books.get_language_page',language_id=language.id)}}'>{{language.language}}</a></li>");
+
+
+                                </script>
+
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </aside>
+            <div class="content" id="content-container">
+                {%  block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+        </script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+
+        <script src="//apis.google.com/js/platform.js?onload=start"> </script>
+    </body>
+</html>

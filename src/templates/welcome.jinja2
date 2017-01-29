@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Multi-User Blog</title>
+		{% include  'html_dependencies.html' %}
+
+	</head>
+	<body>
+		<div class="container">
+			<header class="logo">
+				<img class="img-responsive" src="../static/image/logo2.png" alt="">
+			</header>
+        <div class="jumbotron">
+			<h2>Have you ever wanted to learn to code, but didn't know where to to start?</h2>
+			<h2>Are you tired of not knowing where to start, or what books you should get?</h2>
+        	<p>Programing by Reading is a site that list books that could help you
+			get better at programming. This are books which are aded by users
+		    which could direct you to learning to code better.</p>
+        <p><a class="btn btn-primary btn-lg" href="{{url_for('books.index')}}" role="button">Click Me</a></p>
+      </div>
+		</div>
+	</body>
+</html>

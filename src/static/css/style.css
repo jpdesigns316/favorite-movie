@@ -1,0 +1,182 @@
+@media screen and (max-width: 767px) {
+
+    .navbar-catalog {
+      background-color: #f8f8f8;
+      border-color: #e7e7e7;
+    }
+
+    .books-content {
+        max-width: 100%;
+    }
+    .books {
+        width: 100%;
+        float: none;
+    }
+    /* Bootstrap vertical menu / navigation bar
+   A PEN BY Michael Rambeau
+   http://codepen.io/mikeair/pen/Kfyin/ */
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+/* Header CSS
+This section contains the CSS formating for the things that are placed
+in the header section of the page.*/
+.logo {
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+
+}
+
+/* Navigation CSS
+This section will contatin CSS formating for the navigation. The CSS used here
+may not always be at the top, but used in the aside. */
+.login-bar {
+    margin: 20px;
+}
+
+.inner-bar {
+    padding:10px;
+    padding-right: 20px;
+}
+
+/* Bootstrap vertical menu / navigation bar
+ A PEN BY Michael Rambeau
+ http://codepen.io/mikeair/pen/Kfyin/ */
+.sidebar-nav .navbar .navbar-collapse {
+  padding: 10px;
+  max-height: none;
+  float: none;
+}
+.sidebar-nav .navbar ul {
+  float: none;
+  display: block;
+  margin-left: 25px;
+}
+.sidebar-nav .navbar li {
+  float: none;
+  display: block;
+}
+.sidebar-nav .navbar li a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* Form CSS
+This section will contain the modification of the look of forms. This will
+include the look of button, and how other things are stylized. */
+.form-back {
+    background-color: #f8f8f8;
+    padding: 20px;
+    float:left;
+    max-width: 75%;
+}
+
+.confirm-delete {
+    margin: 25px;
+    font-style: italic;
+}
+
+.content-delete {
+    min-width:  75%;
+}
+
+/*Look of butons*/
+.btn-blue {
+    color: #000;
+    background-color: #00aeef;
+}
+
+.btn-amazon {
+    color: #ff9900;
+    background-color: #2f3842;
+    font-size:10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.inputButton {
+    background-color: red;
+}
+
+/* CSS foor aside */
+.books {
+    height: 100vh;
+    margin-right: 25px;
+    float: left;
+}
+
+/* Main CSS
+content is formated to hold diplay the books correctly so they are aligned
+with the aside menu and do not overlap. Not needed in other pages.*/
+.content {
+    padding-left: 25px;
+    height: 100vh;
+    background-color: white;
+    display: table-cell;
+
+}
+
+.book {
+    margin: 10px;
+    float:left;
+    display: flex;
+    flex-wrap:  wrap;
+}
+
+/* Book CSS
+books-content is the containter which holds the information about the placement
+of the books.  */
+.books-content {
+    position: relative;
+    margin: 25px;
+    padding: 10px;
+    float: left;
+    height: 450px;
+    display: table-cell;
+    max-width: 170px;
+}
+
+.book-img {
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    height: 200px;
+    margin:10px;
+}
+
+.book-title {
+    margin-top: 25px;
+}
+
+.book-author {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+ /* Other CSS */
+.flyout {
+    padding: 5px;
+    position:absolute;
+    width:300px;
+    background-color: white;
+    display: none;
+    border:1px solid black;
+    z-index:10000;
+}

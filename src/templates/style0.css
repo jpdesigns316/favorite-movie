@@ -1,0 +1,181 @@
+@media screen and (max-width: 1200px) {
+
+    .navbar-catalog {
+      background-color: #f8f8f8;
+      border-color: #e7e7e7;
+    }
+
+    .books-content {
+        max-width: 100%;
+    }
+    .books {
+        width: 100%;
+        float: none;
+    }
+    /* Bootstrap vertical menu / navigation bar
+   A PEN BY Michael Rambeau
+   http://codepen.io/mikeair/pen/Kfyin/ */
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+    .navbar-catalog {
+      background-color: #f8f8f8;
+      border-color: #e7e7e7;
+    }
+
+    .books-content {
+        max-width: 25%;
+    }
+    .books {
+        height: 100vh;
+    }
+
+}
+
+
+.form-back {
+    background-color: #f8f8f8;
+    padding: 20px;
+    float:left;
+    max-width: 75%;
+}
+
+.confirm-delete {
+    margin: 25px;
+    font-style: italic;
+}
+.logo {
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+
+}
+
+.book-img {
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    height: 200px;
+    margin:10px;
+}
+
+.book-desc, .book-author, .book-price {
+    margin-top: 10px;
+    min-width: 70%;
+    float:left;
+
+}
+
+.middle {
+    margin-top: 10px
+}
+
+.books-content {
+    margin-right: 5px;
+    float: left;
+    height: 450px;
+    display: table-cell;
+
+}
+
+.books {
+    height: 500px
+    margin-right: 5px;
+    float: left;
+
+}
+
+.books-nav {
+    margin-right: 5px;
+    float: left;
+    min-width:  20%;
+
+}
+
+.content-container {
+    background-color: white;
+
+}
+
+
+.content {
+    padding-left: 25px;
+    max-width: 75%;
+    background-color: white;
+    display: table-cell;
+}
+
+.btn-blue {
+    color: #000;
+    background-color: #00aeef;
+}
+
+.btn-amazon {
+    color: #ff9900;
+    background-color: #2f3842;
+    font-size:10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.book {
+    margin: 10px;
+    float:left;
+    display: flex;
+    flex-wrap:  wrap;
+}
+
+.price {
+    font-size: 18px;
+    color: red;
+    font-weight: 300;
+
+}
+
+a:hover {
+    background-color: yellow;
+}
+
+/* Bootstrap vertical menu / navigation bar
+A PEN BY Michael Rambeau
+http://codepen.io/mikeair/pen/Kfyin/ */
+.sidebar-nav .navbar .navbar-collapse {
+padding: 0;
+max-height: none;
+}
+.sidebar-nav .navbar ul {
+float: none;
+display: block;
+}
+.sidebar-nav .navbar li {
+float: none;
+display: block;
+}
+.sidebar-nav .navbar li a {
+padding-top: 12px;
+padding-bottom: 12px;
+}
+
+.content-delete {
+    min-width:  75%;
+}
+.inputButton {
+    background-color: red;
+}
